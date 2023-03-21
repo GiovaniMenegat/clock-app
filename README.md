@@ -1,5 +1,5 @@
 # clock-app
-A Clock App to practice TDD concepts in ReactJS
+A Clock App to practice tests concepts in ReactJS
 
 ## The project
 This project was idealized by Frontend Mentor. [Link to Frontend Mentor project](https://www.frontendmentor.io/challenges/clock-app-LMFaxFwrM).
