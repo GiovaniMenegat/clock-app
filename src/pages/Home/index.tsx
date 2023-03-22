@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react"
+import { Clock } from "../../components/Clock";
+import { Quote } from "../../components/Quotes";
+
 export function Home() {
+
     return (
         <>
-            <h1>clock apps</h1>
+            <Quote/>
+            <Clock />
         </>
     )
 }
