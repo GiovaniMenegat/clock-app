@@ -57,7 +57,30 @@ export const HomeBottom = styled.div`
 
 export const ExtraInformation = styled.div`
     padding: 3.5rem 10.3125rem 6.125rem;
-    max-width: 52.75rem;
     color: ${(props) => props.theme.grey};
     background-color: ${(props) => props.theme.white};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    hr {
+        height: 252px;
+        width: 1px;   
+    }
+`
+
+export const ExtraInformationTitle = styled.h4`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.1875rem;
+    text-transform: uppercase;
+`
+
+export const ExtraInformationText = styled.h6`
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 4.25rem;
 `
