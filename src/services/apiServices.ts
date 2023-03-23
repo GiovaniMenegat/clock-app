@@ -1,7 +1,7 @@
 import { api } from "../lib/axios";
 
 export async function fetchRandomQuotes() {
-    const { data } = await api.get('https://api.quotable.io/random?tags=technology')
+    const { data } = await api.get('https://api.quotable.io/random')
 
     return data
 }

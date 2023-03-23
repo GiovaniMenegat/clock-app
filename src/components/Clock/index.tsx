@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { format, parseISO } from 'date-fns'
+import { format } from 'date-fns'
 import { fetchUserDatetime } from "../../services/apiServices";
+import { ClockContainer, ClockTime } from "./styles";
 
 interface Datetime {
     datetime: Date
@@ -12,8 +13,8 @@ export function Clock() {
 
     useEffect(() => {
         fetchUserDatetime().then((datetime) => {
-            const cleanString = datetime.timezone.replace("/", ", ").replace("_", " ")
-            
+            const cleanString = datetime.timezone.replace("/", ", ").replace("_", " ").toUpperCase()
+
             setUserDatetime({
                 datetime: datetime.datetime,
                 location: cleanString
@@ -22,14 +23,14 @@ export function Clock() {
     }, [])
 
     return (
-        <>
+        <ClockContainer>
 
             {
                 userDatetime.datetime ?
-                <h1>{format(new Date(userDatetime.datetime), 'HH:mm')}</h1> : null
+                    <ClockTime>{format(new Date(userDatetime.datetime), 'HH:mm')}</ClockTime> : null
             }
 
-            <h4>In {userDatetime.location}</h4>
-        </>
+            <h4>IN {userDatetime.location}</h4>
+        </ClockContainer>
     )
 }
