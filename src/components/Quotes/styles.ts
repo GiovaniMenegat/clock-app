@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const QuotesContainer = styled.div`
     display: flex;
+    max-width: 35.8125rem;
 `
 
 export const QuotesMain = styled.div`
