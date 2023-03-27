@@ -19,7 +19,7 @@ export const HomeContainer = styled.main`
     justify-content: space-between;
     align-items: flex-start;
 
-    @media only screen and (min-width:800px) {
+    @media only screen and (min-width:800px) and (max-width: 1000px ) {
         padding: 5rem 4rem 4rem;
     }
     @media only screen and (min-width:400px) and (max-width: 799px ) {
@@ -41,7 +41,7 @@ export const ExtraInformationButton = styled.button`
     justify-content: space-evenly;
     align-items: center;
 
-    @media only screen and (min-width:800px) {
+    @media only screen and (min-width:800px) and (max-width: 1000px ) {
         margin-top: 5rem;
     }
     @media only screen and (min-width:400px) and (max-width: 799px ) {
@@ -71,7 +71,7 @@ export const HomeBottom = styled.div`
     justify-content: space-between;
     width: 100%;
 
-    @media only screen and (min-width:300px) {
+    @media only screen and (min-width:300px) and (max-width: 1000px ) {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -91,7 +91,7 @@ export const ExtraInformation = styled.div`
         width: 1px;   
     }
 
-    @media only screen and (min-width:800px) {
+    @media only screen and (min-width:800px) and (max-width: 1000px ) {
         padding: 7.4375rem 4rem;
         hr {
             display: none;
