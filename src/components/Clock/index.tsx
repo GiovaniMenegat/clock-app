@@ -1,7 +1,12 @@
 import { format } from 'date-fns'
 import { ClockContainer, ClockTime } from "./styles";
 
-export function Clock({datetime, location}) {
+interface ClockProps {
+    datetime: Date
+    location: string
+}
+
+export function Clock({ datetime, location }: ClockProps) {
     return (
         <ClockContainer>
 
