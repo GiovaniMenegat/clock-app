@@ -1,12 +1,22 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.main`
+const BACKGROUND_IMAGE = {
+    day: 'day',
+    night: 'night'
+} as const
+
+interface BackgroundImageProps {
+    backgroundImage: keyof typeof BACKGROUND_IMAGE
+}
+
+export const HomeContainer = styled.main<BackgroundImageProps>`
     background:
     linear-gradient(
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
     ),
-    url("src/assets/day-background.jpg");
+    url(${(props) => props.backgroundImage === 'day' ? 'src/assets/day-background.jpg' : 'src/assets/night-background.jpg'});
+    
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
@@ -77,10 +87,28 @@ export const HomeBottom = styled.div`
     }
 `
 
-export const ExtraInformation = styled.div`
+const BACKGROUND_COLOR = {
+    white: 'white',
+    black: 'black'
+} as const
+
+interface BackgroundProps {
+    backgroundColor: keyof typeof BACKGROUND_COLOR
+}
+
+const FONT_COLOR = {
+    white: 'white',
+    black: 'black'
+} as const
+
+interface FontProps {
+    fontColor: keyof typeof FONT_COLOR
+}
+
+export const ExtraInformation = styled.div<BackgroundProps & FontProps>`
     padding: 3.5rem 10.3125rem 6.125rem;
-    color: ${(props) => props.theme.grey};
-    background-color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme[FONT_COLOR[props.fontColor]]};
+    background-color: ${(props) => props.theme[BACKGROUND_COLOR[props.backgroundColor]]};
     display: flex;
     align-items: center;
     justify-content: space-between;

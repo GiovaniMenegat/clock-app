@@ -11,6 +11,7 @@ interface Datetime {
     dayOfYear: number
     dayOfWeek: number
     weekNumber: number
+    night: boolean
 }
 
 export function Home() {
@@ -20,14 +21,15 @@ export function Home() {
     useEffect(() => {
         fetchUserDatetime().then((datetime) => {
             const cleanString = datetime.timezone.replace("/", ", ").replace("_", " ").toUpperCase()
-            console.log(datetime);
+            const isNight = new Date(datetime.datetime).getHours() >= 20 ? true : false
             
             setUserDatetime({
                 datetime: datetime.datetime,
                 location: cleanString,
                 dayOfWeek: datetime.day_of_week,
                 dayOfYear: datetime. day_of_year,
-                weekNumber: datetime.week_number
+                weekNumber: datetime.week_number,
+                night: isNight
             })
         })
     }, [])
@@ -50,7 +52,7 @@ export function Home() {
     
     return (
         <>
-        <HomeContainer>
+        <HomeContainer backgroundImage={userDatetime.night ? 'night' : 'day'}>
             <Quote />
             <HomeBottom>
                 <Clock datetime={userDatetime.datetime} location={userDatetime.location}/>
@@ -72,7 +74,7 @@ export function Home() {
             </HomeBottom>
         </HomeContainer>
 
-        <ExtraInformation>
+            <ExtraInformation backgroundColor={userDatetime.night ? 'black' : 'white'} fontColor={userDatetime.night ? 'white' : 'black'}>
             <div>
                 <ExtraInformationTitle>
                     Current timezone
